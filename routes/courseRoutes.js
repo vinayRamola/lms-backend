@@ -14,6 +14,10 @@ router.route('/')
         createCourse
         );
 
+// router.post('/course/create', isLoggedIn,authorizedRoles('ADMIN'),
+// upload.single('thumbnail'),
+// createCourse)
+
 router.route('/:id')
     .get(isLoggedIn, authorizedRoles('ADMIN'), getLectureByCourseId)
     .put(isLoggedIn, authorizedRoles('ADMIN'), updateCourse)

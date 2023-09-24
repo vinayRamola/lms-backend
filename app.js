@@ -18,11 +18,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 app.use(cors({
-    // origin: [process.env.FRONTEND_URL],
-    origin: 'http:localhost:5173',
+    origin: [process.env.FRONTEND_URL],
+    // origin: 'http:localhost:5173',
     credentials: true,
 }));
+
+
 
 app.use(cookieParser());
 app.use(morgan('dev'))
