@@ -9,7 +9,7 @@ config();
 
 import userRoutes from './routes/userRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
-// import paymentRoutes from './routes/paymentRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 
 import errorMiddleware from './middlewares/error.middleware.js';
 
@@ -27,7 +27,6 @@ app.use((req, res, next) => {
 
 app.use(cors({
     origin: [process.env.FRONTEND_URL],
-    // origin: 'http:localhost:5173',
     credentials: true,
 }));
 
@@ -42,7 +41,7 @@ app.use(morgan('dev'))
 
 app.use('/api/v1/user',userRoutes);
 app.use('/api/v1/courses',courseRoutes);
-// app.use('/api/v1/payment',paymentRoutes);
+app.use('/api/v1/payments',paymentRoutes);
 
 app.all('*',(req,res)=>{
     res.status(404).send('OOPS! 404 page not found');
