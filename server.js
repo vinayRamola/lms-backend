@@ -3,7 +3,7 @@ config();
 import app from './app.js';
 import connectionToDB from './config/dbConnection.js';
 import cloudinary from 'cloudinary'
-import Razorpay from 'razorpay.js';
+import Razorpay from 'razorpay';
 
 
 

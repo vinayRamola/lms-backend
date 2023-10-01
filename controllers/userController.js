@@ -264,7 +264,7 @@ const changePassword = async (req,res,next) => {
 
 const updateUser = async(req,res,next) => {
     const {fullName} = req.body;
-    const {id} = req.user.id;
+    const id = req.user.id;
 
     const user = await User.findById(id);
 
@@ -274,8 +274,8 @@ const updateUser = async(req,res,next) => {
         )
     }
 
-    if(req.fullName){
-        user.fullName= fullName;
+    if(fullName){
+        user.fullName = fullName;
     }
 
     if(req.file){
